@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Multiplayer Ludo</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="app">
+      <header>
+        <h1>🎲 Multiplayer Ludo</h1>
+        <p>Play with up to 4 friends in a private room.</p>
+      </header>
+
+      <section class="card controls">
+        <div class="form-row">
+          <label for="username">Username</label>
+          <input id="username" placeholder="Enter your name" maxlength="20" />
+        </div>
+        <div class="form-row room-actions">
+          <button id="createRoomBtn">Create Room</button>
+          <input id="roomIdInput" placeholder="Room ID" maxlength="8" />
+          <button id="joinRoomBtn">Join Room</button>
+        </div>
+        <p id="roomLabel">Room: -</p>
+      </section>
+
+      <main class="layout">
+        <section class="card board-card">
+          <div class="status-bar">
+            <p id="turnText">Turn: -</p>
+            <p id="diceText">Dice: -</p>
+            <button id="rollDiceBtn" disabled>Roll Dice</button>
+            <button id="restartBtn" disabled>Restart</button>
+          </div>
+          <div id="board" class="board"></div>
+        </section>
+
+        <aside class="sidebar">
+          <section class="card">
+            <h2>Players</h2>
+            <ul id="playersList"></ul>
+          </section>
+
+          <section class="card">
+            <h2>Chat</h2>
+            <div id="chatBox" class="chat-box"></div>
+            <div class="chat-input">
+              <input id="chatInput" placeholder="Type message" maxlength="160" />
+              <button id="sendChatBtn">Send</button>
+            </div>
+          </section>
+
+          <section class="card">
+            <h2>Leaderboard</h2>
+            <ul id="leaderboardList"></ul>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="game.js"></script>
+  </body>
+</html>
